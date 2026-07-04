@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Pantai Timor — Kupang, NTT</title>
+  <meta name="description" content="Hotel Pantai Timor — hotel nyaman di pusat Kota Kupang, NTT. Ideal untuk perjalanan bisnis dan liburan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Hotel Pantai Timor</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#rooms">Kamar</a></li>
+        <li><a href="#gallery">Galeri</a></li>
+        <li><a href="#reviews">Ulasan</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <img class="hero__img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=85" alt="Hotel Pantai Timor" loading="eager">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Kota Kupang, NTT</p>
+      <h1>Comfort in the Heart of Kupang</h1>
+      <p class="hero__subtitle">Hotel berlokasi strategis di pusat kota, dekat Pantai Timor — pilihan tepat untuk bisnis maupun liburan Anda.</p>
+      <div class="hero__stats">
+        <span class="stat">⭐ 4.0</span>
+        <span class="stat">288 Ulasan</span>
+        <span class="stat">Lokasi Pusat Kota</span>
+      </div>
+      <a href="#rooms" class="btn btn--accent">Lihat Kamar</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container about__grid">
+      <div class="about__img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=85" alt="Lobi Hotel" loading="lazy">
+      </div>
+      <div class="about__text reveal">
+        <h2>Tentang Hotel Kami</h2>
+        <p>Hotel Pantai Timor hadir untuk memenuhi kebutuhan akomodasi Anda di Kota Kupang. Dengan lokasi strategis di Jl. Sumatera, kami menawarkan kenyamanan bagi pelaku bisnis maupun wisatawan yang ingin menjelajahi keindahan NTT.</p>
+        <p>Setiap kamar dirancang dengan fasilitas modern dan pelayanan ramah khas NTT.</p>
+        <div class="about__features">
+          <div class="feature"><span class="feature__icon">❄️</span><span>AC Rooms</span></div>
+          <div class="feature"><span class="feature__icon">📶</span><span>Free WiFi</span></div>
+          <div class="feature"><span class="feature__icon">🏢</span><span>Meeting Room</span></div>
+          <div class="feature"><span class="feature__icon">🚐</span><span>Airport Transfer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="section rooms" id="rooms">
+    <div class="container">
+      <h2 class="section__title reveal">Pilihan Kamar</h2>
+      <p class="section__subtitle reveal">Tiga tipe kamar untuk kebutuhan Anda</p>
+      <div class="rooms__grid">
+        <div class="room-card reveal">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=85" alt="Standard Room" loading="lazy">
+          <div class="room-card__body">
+            <h3>Standard</h3>
+            <p class="room-card__price">Rp 300rb <small>/malam</small></p>
+            <p>Kamar nyaman dengan AC, TV, dan kamar mandi pribadi.</p>
+            <a href="https://wa.me/6281246007575?text=Halo%2C%20saya%20ingin%20booking%20kamar%20Standard" class="btn btn--accent btn--sm" target="_blank" rel="noopener">Booking via WA</a>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=85" alt="Deluxe Room" loading="lazy">
+          <div class="room-card__body">
+            <h3>Deluxe</h3>
+            <p class="room-card__price">Rp 450rb <small>/malam</small></p>
+            <p>Ruang lebih luas dengan area duduk dan pemandangan kota.</p>
+            <a href="https://wa.me/6281246007575?text=Halo%2C%20saya%20ingin%20booking%20kamar%20Deluxe" class="btn btn--accent btn--sm" target="_blank" rel="noopener">Booking via WA</a>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=85" alt="Suite Room" loading="lazy">
+          <div class="room-card__body">
+            <h3>Suite</h3>
+            <p class="room-card__price">Rp 650rb <small>/malam</small></p>
+            <p>Suite premium dengan ruang tamu terpisah dan fasilitas lengkap.</p>
+            <a href="https://wa.me/6281246007575?text=Halo%2C%20saya%20ingin%20booking%20kamar%20Suite" class="btn btn--accent btn--sm" target="_blank" rel="noopener">Booking via WA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <h2 class="section__title reveal">Galeri</h2>
+      <div class="gallery__grid">
+        <div class="gallery__item gallery__item--tall reveal"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=85" alt="Hotel 1" loading="lazy"></div>
+        <div class="gallery__item reveal"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=85" alt="Hotel 2" loading="lazy"></div>
+        <div class="gallery__item reveal"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=85" alt="Hotel 3" loading="lazy"></div>
+        <div class="gallery__item gallery__item--wide reveal"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=85" alt="Hotel 4" loading="lazy"></div>
+        <div class="gallery__item reveal"><img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=600&q=85" alt="Hotel 5" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <h2 class="section__title reveal">Ulasan Tamu</h2>
+      <div class="reviews__grid">
+        <div class="review-card reveal">
+          <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+          <p>"Kamar bersih, AC dingin, dan lokasinya sangat strategis. Staf ramah dan membantu. Pasti akan kembali lagi!"</p>
+          <span class="review-card__author">— Rina, Jakarta</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-card__stars">⭐⭐⭐⭐</div>
+          <p>"Pengalaman menginap yang nyaman untuk perjalanan bisnis. WiFi cepat dan meeting room-nya bagus."</p>
+          <span class="review-card__author">— Budi, Surabaya</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-card__stars">⭐⭐⭐⭐</div>
+          <p>"Harga terjangkau dengan kualitas yang oke. Dekat dengan pantai dan tempat makan. Recommended!"</p>
+          <span class="review-card__author">— Sari, Denpasar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info reveal">
+        <h2>Hubungi Kami</h2>
+        <p><strong>Alamat:</strong> Jl. Sumatera No.44, Todekisar, Kec. Kota Lama, Kota Kupang, NTT</p>
+        <p><strong>Telepon:</strong> <a href="tel:+6281246007575">0812-4600-7575</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/6281246007575" target="_blank" rel="noopener">Chat langsung</a></p>
+        <iframe class="contact__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.6!2d123.6!3d-10.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDEwJzEyLjAiUyAxMjPCsDM2JzAwLjAiRQ!5e0!3m2!1sid!2sid!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <form class="contact__form reveal" id="contactForm">
+        <h3>Kirim Pesan</h3>
+        <input type="text" name="name" placeholder="Nama Anda" required>
+        <input type="text" name="subject" placeholder="Keperluan">
+        <textarea name="message" rows="4" placeholder="Pesan Anda" required></textarea>
+        <button type="submit" class="btn btn--accent">Kirim via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2025 Hotel Pantai Timor. All rights reserved.</p>
+      <p class="footer__credit">Website by <strong>Webminds Kupang</strong></p>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/6281246007575?text=Halo%2C%20saya%20tertarik%20dengan%20Hotel%20Pantai%20Timor" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 2.002c-7.732 0-14 6.268-14 14 0 2.468.645 4.873 1.87 6.99L2 30l7.19-1.842A13.93 13.93 0 0016.004 30c7.732 0 14-6.268 14-14s-6.268-14-14-14zm0 25.6a11.55 11.55 0 01-5.887-1.616l-.423-.25-4.278 1.1 1.142-4.168-.276-.428A11.56 11.56 0 014.4 16c0-6.407 5.197-11.6 11.604-11.6 6.407 0 11.6 5.193 11.6 11.6s-5.193 11.6-11.6 11.6zm6.358-8.738c-.348-.175-2.058-1.018-2.378-1.134-.32-.116-.553-.175-.785.175-.233.35-.898 1.134-1.102 1.367-.204.233-.408.262-.756.088-.348-.175-1.467-.541-2.797-1.728-1.032-.925-1.73-2.068-1.935-2.417-.204-.35-.022-.539.153-.714.157-.157.35-.408.525-.612.175-.204.233-.35.35-.583.116-.233.058-.437-.029-.612-.087-.175-.785-1.897-1.077-2.597-.284-.679-.573-.587-.785-.598l-.67-.012c-.233 0-.612.088-.932.437-.32.35-1.224 1.196-1.224 2.915 0 1.719 1.253 3.38 1.428 3.613.175.233 2.47 3.774 5.982 5.289.835.374 1.487.598 1.997.766.839.282 1.604.243 2.204.147.672-.108 2.058-.84 2.349-1.652.29-.812.29-1.507.203-1.652-.087-.146-.32-.233-.668-.408z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
