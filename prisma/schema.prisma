@@ -1,0 +1,166 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// AUTH.JS MODELS
+// ============================================
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?   // for credentials login
+  role          String    @default("guest") // "admin" | "staff" | "guest"
+  phone         String?
+
+  accounts Account[]
+  sessions Session[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============================================
+// HOTEL MODELS
+// ============================================
+
+model Room {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String
+  slug            String   @unique
+  type            String   // "standard" | "deluxe" | "suite"
+  description     String?  @db.Text
+  priceWeekday    Int      @map("price_weekday")
+  priceWeekend    Int      @map("price_weekend")
+  priceHighSeason Int?     @map("price_high_season")
+  maxGuests       Int      @default(2) @map("max_guests")
+  bedType         String?  @map("bed_type")
+  sizeSqm         Int?     @map("size_sqm")
+  amenities       Json     @default("[]")
+  images          Json     @default("[]")
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  bookings   Booking[]
+  roomBlocks RoomBlock[]
+
+  @@index([slug])
+  @@index([type])
+  @@map("rooms")
+}
+
+model Booking {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  roomId         String   @map("room_id") @db.Uuid
+  guestName      String   @map("guest_name")
+  guestEmail     String?  @map("guest_email")
+  guestPhone     String   @map("guest_phone")
+  guestIdNumber  String?  @map("guest_id_number")
+  checkIn        DateTime @map("check_in") @db.Date
+  checkOut       DateTime @map("check_out") @db.Date
+  numGuests      Int      @default(1) @map("num_guests")
+  totalPrice     Int      @map("total_price")
+  status         String   @default("pending") // pending|confirmed|checked_in|checked_out|cancelled|no_show
+  paymentStatus  String   @default("unpaid") @map("payment_status") // unpaid|partial|paid|refunded
+  paymentMethod  String?  @map("payment_method")
+  notes          String?  @db.Text
+  adminNotes     String?  @map("admin_notes") @db.Text
+  source         String   @default("website")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  room    Room     @relation(fields: [roomId], references: [id])
+  reviews Review[]
+
+  @@index([roomId])
+  @@index([checkIn, checkOut])
+  @@index([status])
+  @@map("bookings")
+}
+
+model Review {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  bookingId  String?  @map("booking_id") @db.Uuid
+  guestName  String   @map("guest_name")
+  rating     Int
+  comment    String?  @db.Text
+  isApproved Boolean  @default(false) @map("is_approved")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  booking Booking? @relation(fields: [bookingId], references: [id])
+
+  @@map("reviews")
+}
+
+model RoomBlock {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  roomId      String   @map("room_id") @db.Uuid
+  blockedFrom DateTime @map("blocked_from") @db.Date
+  blockedTo   DateTime @map("blocked_to") @db.Date
+  reason      String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  room Room @relation(fields: [roomId], references: [id])
+
+  @@index([blockedFrom, blockedTo])
+  @@map("room_blocks")
+}
+
+model PricingRule {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String
+  dateFrom   DateTime @map("date_from") @db.Date
+  dateTo     DateTime @map("date_to") @db.Date
+  multiplier Decimal  @default(1.50) @db.Decimal(3, 2)
+  isActive   Boolean  @default(true) @map("is_active")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@map("pricing_rules")
+}
